@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_encore/colors/colors.dart';
+import 'package:my_encore/constants.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final String title;
@@ -13,11 +14,7 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   _CustomAppBarState createState() => _CustomAppBarState();
 }
 
-class _CustomAppBarState extends State<CustomAppBar>  {
-
-
-
-
+class _CustomAppBarState extends State<CustomAppBar> {
   @override
   double _getAppBarSize() {
     if (widget.topTabs != null) return 120;
@@ -146,8 +143,8 @@ class _CirclePainter extends BoxPainter {
 
   _CirclePainter(Color color, this.radius)
       : _paint = Paint()
-    ..color = color
-    ..isAntiAlias = true;
+          ..color = color
+          ..isAntiAlias = true;
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration cfg) {

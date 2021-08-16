@@ -1,19 +1,17 @@
-import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_encore/colors/colors.dart';
-import 'package:my_encore/models/covid.dart';
-import 'package:my_encore/widgets/button.dart';
+import 'package:my_encore/widgets/primary_button.dart';
 
-class calculatorScreen extends StatefulWidget {
+class TempretureCheckPage extends StatefulWidget {
+  TempretureCheckPage({Key key}) : super(key: key);
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _TempretureCheckPageState createState() => _TempretureCheckPageState();
 }
 
-class _MyHomePageState extends State<calculatorScreen> {
+class _TempretureCheckPageState extends State<TempretureCheckPage> {
   List<bool> _list = [true, false];
 
   TextEditingController mobilenoController = TextEditingController();
@@ -220,7 +218,11 @@ class _MyHomePageState extends State<calculatorScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.020,
               ),
-              InkWell(onTap: () {}, child: button(title: 'Done')),
+              InkWell(
+                  onTap: () {},
+                  child: PrimaryButton(
+                    text: "Done",
+                  )),
             ],
           ),
         ),

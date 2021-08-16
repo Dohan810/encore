@@ -1,19 +1,22 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_encore/colors/colors.dart';
 import 'package:my_encore/models/covid.dart';
-import 'package:my_encore/widgets/button.dart';
+import 'package:my_encore/pages/present/tempreture_input.dart';
+import 'package:my_encore/widgets/custonmAppbar.dart';
+import 'package:my_encore/widgets/primary_button.dart';
 
-class covidScreen extends StatefulWidget {
+class CovidCheckPage extends StatefulWidget {
+  CovidCheckPage({Key key}) : super(key: key);
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _CovidCheckPageState createState() => _CovidCheckPageState();
 }
 
-class _MyHomePageState extends State<covidScreen> {
+class _CovidCheckPageState extends State<CovidCheckPage> {
   int _selectedIndex;
   List<bool> _list = [true, false];
 
@@ -21,46 +24,8 @@ class _MyHomePageState extends State<covidScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppColors.kBlue,
-          toolbarHeight: 100, // default is 56
-          toolbarOpacity: 0.5,
-          centerTitle: true,
-          title: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.060,
-              width: MediaQuery.of(context).size.width * 1,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.arrow_back_outlined,
-                        color: Colors.white,
-                      )),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(50, 0, 0, 0),
-                    child: Text('Covid-19 Test',
-                        style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
-                              fontSize:
-                                  20 * MediaQuery.textScaleFactorOf(context),
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white),
-                        )),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          shape: ContinuousRectangleBorder(
-            borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(90.0),
-                bottomRight: Radius.circular(90.0)),
-          ),
+        appBar: CustomAppBar(
+          title: "Home",
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -250,7 +215,16 @@ class _MyHomePageState extends State<covidScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.020,
               ),
-              InkWell(onTap: () {}, child: button(title: 'Stuur')),
+              PrimaryButton(
+                text: "Stuur",
+                onPress: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => TempretureCheckPage()),
+                  );
+                },
+              ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.020,
               ),

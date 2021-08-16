@@ -1,19 +1,17 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:my_encore/colors/colors.dart';
-import 'calendar.dart';
+import 'package:my_encore/pages/present/covid_check.dart';
 
-import 'contact_us.dart';
-import 'news.dart';
+class DetailsPage extends StatefulWidget {
+  DetailsPage({Key key}) : super(key: key);
 
-class homeScreen extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _DetailsPageState createState() => _DetailsPageState();
 }
 
-class _MyHomePageState extends State<homeScreen> {
+class _DetailsPageState extends State<DetailsPage> {
   DateTime now = DateTime.now();
 
   @override
@@ -64,7 +62,13 @@ class _MyHomePageState extends State<homeScreen> {
                                   color: AppColors.kRed),
                             )),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => CovidCheckPage()),
+                            );
+                          },
                           child: Container(
                             height: MediaQuery.of(context).size.height * 0.080,
                             width: MediaQuery.of(context).size.width * 0.30,

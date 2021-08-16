@@ -1,22 +1,16 @@
-import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_encore/colors/colors.dart';
-import 'package:my_encore/models/covid.dart';
-import 'package:my_encore/widgets/button.dart';
+import 'package:my_encore/widgets/primary_button.dart';
 
-import 'calendar.dart';
-import 'contact_us.dart';
+class NewsDetails extends StatefulWidget {
+  NewsDetails({Key key}) : super(key: key);
 
-class newsScreen extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _NewsDetailsState createState() => _NewsDetailsState();
 }
 
-class _MyHomePageState extends State<newsScreen> {
+class _NewsDetailsState extends State<NewsDetails> {
   @override
   void initState() {}
 
@@ -252,7 +246,11 @@ class _MyHomePageState extends State<newsScreen> {
                 padding: const EdgeInsets.fromLTRB(0, 10, 0, 30),
                 child: Center(
                   child: InkWell(
-                      onTap: () {}, child: button(title: 'Add Articles')),
+                    onTap: () {},
+                    child: PrimaryButton(
+                      text: "Add Articles",
+                    ),
+                  ),
                 ),
               ),
             ],

@@ -1,19 +1,16 @@
-import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_encore/colors/colors.dart';
-import 'package:my_encore/models/covid.dart';
-import 'package:my_encore/widgets/button.dart';
+import 'package:my_encore/widgets/primary_button.dart';
 
-class contactScreen extends StatefulWidget {
+class ContactUsPage extends StatefulWidget {
+  ContactUsPage({Key key}) : super(key: key);
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _ContactUsPageState createState() => _ContactUsPageState();
 }
 
-class _MyHomePageState extends State<contactScreen> {
+class _ContactUsPageState extends State<ContactUsPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -214,8 +211,8 @@ class _MyHomePageState extends State<contactScreen> {
             ),
             InkWell(
               onTap: () {},
-              child: button(
-                title: 'Update',
+              child: PrimaryButton(
+                text: "Update",
               ),
             ),
           ],

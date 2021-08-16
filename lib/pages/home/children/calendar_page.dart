@@ -1,20 +1,14 @@
-import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_encore/colors/colors.dart';
-import 'package:my_encore/models/covid.dart';
 
-import 'contact_us.dart';
+class CalendarDetails extends StatefulWidget {
+  CalendarDetails({Key key}) : super(key: key);
 
-class calendarScreen extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _CalendarDetailsState createState() => _CalendarDetailsState();
 }
 
-class _MyHomePageState extends State<calendarScreen> {
+class _CalendarDetailsState extends State<CalendarDetails> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

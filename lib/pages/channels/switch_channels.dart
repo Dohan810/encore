@@ -1,18 +1,19 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_encore/colors/colors.dart';
 import 'package:my_encore/models/names.dart';
 
-class channelScreen extends StatefulWidget {
+class SwitchChannels extends StatefulWidget {
+  SwitchChannels({Key key}) : super(key: key);
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _SwitchChannelsState createState() => _SwitchChannelsState();
 }
 
-class _MyHomePageState extends State<channelScreen> {
+class _SwitchChannelsState extends State<SwitchChannels> {
   int _selectedIndex;
 
   List a = [
