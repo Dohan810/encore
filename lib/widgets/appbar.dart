@@ -6,7 +6,9 @@ class CustomAppBar extends StatefulWidget {
   final String title;
   final List<Map<String, dynamic>> topTabs;
   final TabController topTabController;
-  CustomAppBar({@required this.title, this.topTabs, this.topTabController});
+  final Widget child;
+  CustomAppBar(
+      {@required this.title, this.topTabs, this.topTabController, this.child});
 
   @override
   _CustomAppBarState createState() => _CustomAppBarState();
@@ -24,14 +26,20 @@ class _CustomAppBarState extends State<CustomAppBar> {
     List<Widget> arr = [];
     List<Widget> arrView = [];
 
+    double _width = MediaQuery.of(context).size.width;
+    double _height = MediaQuery.of(context).size.height - _getAppBarSize() - 50;
+
     arr.add(
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
             icon: Icon(Icons.arrow_back, color: Colors.white),
-            onPressed: () {},
-            //onPressed: () => Navigator.of(context).pop(),
+            onPressed: () {
+              Navigator.canPop(context)
+                  ? Navigator.of(context).pop()
+                  : Navigator.of(context).pop();
+            },
           ),
           Text(
             widget.title,
@@ -45,9 +53,6 @@ class _CustomAppBarState extends State<CustomAppBar> {
         ],
       ),
     );
-
-    double _width = MediaQuery.of(context).size.width;
-    double _height = MediaQuery.of(context).size.height - _getAppBarSize();
 
     if (widget.topTabs != null) {
       List<Widget> tempTopBar = [];
@@ -98,27 +103,35 @@ class _CustomAppBarState extends State<CustomAppBar> {
       );
     }
 
+    if (widget.child != null) {
+      arrView.add(widget.child);
+    }
+
     return SafeArea(
-      child: Column(
-        children: [
-          Container(
-            height: _getAppBarSize(),
-            decoration: kAppBarBoxDecorations,
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: arr,
+      child: Scaffold(
+        body: Column(
+          children: [
+            Container(
+              height: _getAppBarSize(),
+              decoration: kAppBarBoxDecorations,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: arr,
+                ),
               ),
             ),
-          ),
-          Container(
-            child: Column(
-              children: arrView,
+            Container(
+              height:
+                  MediaQuery.of(context).size.height - _getAppBarSize() - 50,
+              child: ListView(
+                children: arrView,
+              ),
             ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }

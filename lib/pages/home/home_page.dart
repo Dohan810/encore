@@ -21,21 +21,15 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          CustomAppBar(
-            title: "Home",
-            topTabs: [
-              {"Details": DetailsPage()},
-              {"News": NewsDetails()},
-              {"Calendar": CalendarDetails()},
-              {"Contact Us": ContactUsPage()},
-            ],
-            topTabController: _controller,
-          ),
-        ],
-      ),
+    return CustomAppBar(
+      title: "Home",
+      topTabs: [
+        {"Details": DetailsPage()},
+        {"News": NewsDetails()},
+        {"Calendar": CalendarDetails()},
+        {"Contact Us": ContactUsPage()},
+      ],
+      topTabController: _controller,
     );
   }
 }
