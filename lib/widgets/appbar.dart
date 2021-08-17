@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_encore/constants.dart';
+import 'package:my_encore/pages/home/home_page.dart';
 
 class CustomAppBar extends StatefulWidget {
   final String title;
@@ -38,7 +39,10 @@ class _CustomAppBarState extends State<CustomAppBar> {
             onPressed: () {
               Navigator.canPop(context)
                   ? Navigator.of(context).pop()
-                  : Navigator.of(context).pop();
+                  : Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Home()),
+                    );
             },
           ),
           Text(
