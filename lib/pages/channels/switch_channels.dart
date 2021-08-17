@@ -156,21 +156,22 @@ class _SwitchChannelsState extends State<SwitchChannels> {
                       child: InkWell(
                         onTap: () {},
                         child: Container(
-                            height: MediaQuery.of(context).size.height * 0.060,
-                            width: MediaQuery.of(context).size.width * 0.13,
-                            decoration: BoxDecoration(
-                              color: AppColors.kBlue,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(7),
-                                topRight: Radius.circular(7),
-                                bottomLeft: Radius.circular(7),
-                                bottomRight: Radius.circular(7),
-                              ),
+                          height: MediaQuery.of(context).size.height * 0.060,
+                          width: MediaQuery.of(context).size.width * 0.13,
+                          decoration: BoxDecoration(
+                            color: AppColors.kBlue,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(7),
+                              topRight: Radius.circular(7),
+                              bottomLeft: Radius.circular(7),
+                              bottomRight: Radius.circular(7),
                             ),
-                            child: Icon(
-                              Icons.search,
-                              color: Colors.white,
-                            )),
+                          ),
+                          child: Icon(
+                            Icons.search,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -181,28 +182,12 @@ class _SwitchChannelsState extends State<SwitchChannels> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.020,
           ),
-          Column(children: switchChannels())
+          Column(
+            children: switchChannels(),
+          )
         ],
       ),
     );
-  }
-
-  Future<String> _loadRecentActivity() async {
-    return await rootBundle.loadString('assets/data.json');
-  }
-
-  Future<List<Data>> _getNames() async {
-    String jsonString = await _loadRecentActivity();
-    final jsonResponse = json.decode(jsonString);
-    List<Data> recentusers = [];
-    for (var u in jsonResponse) {
-      Data user = Data(u["name"], u["btn"]);
-      recentusers.add(user);
-    }
-
-    print(recentusers.length);
-
-    return recentusers;
   }
 
   void _showDialog() {
