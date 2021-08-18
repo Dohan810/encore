@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:my_encore/colors/colors.dart';
 import 'package:my_encore/pages/channels/switch_channels.dart';
 import 'package:my_encore/pages/home/home_page.dart';
-import 'package:my_encore/ui_Pages/channels.dart';
-import 'ui_Pages/login_screen.dart';
+import 'pages/login_screen.dart';
 
 void main() {
   runApp(MyApp());

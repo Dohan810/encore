@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:my_encore/colors/colors.dart';
+import 'package:my_encore/constants.dart';
 import 'package:my_encore/pages/present/covid_check.dart';
 
 class DetailsPage extends StatefulWidget {
